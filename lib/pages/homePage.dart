@@ -10,12 +10,8 @@ class HomePage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text("Catalog App"),
-        shadowColor: Colors.lightBlue,
       ),
-      drawer: Drawer(
-        backgroundColor: Colors.lightBlueAccent,
-        elevation: 10.0,
-      ),
+      drawer: Drawer(),
       body: Center(
           child: Container(
             child: Text('welcome to $days days of code by $name'),
