@@ -9,13 +9,11 @@ class HomePage extends StatelessWidget {
     String name = "Shubham";
     return Scaffold(
       appBar: AppBar(
-        title: Text("Catalog App"),
+        title: const Text("Catalog App"),
       ),
-      drawer: Drawer(),
+      drawer: const Drawer(),
       body: Center(
-          child: Container(
-            child: Text('welcome to $days days of code by $name'),
-            )
+          child: Text('welcome to $days days of code by $name')
       )
     );
   }
