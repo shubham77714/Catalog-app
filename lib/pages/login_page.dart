@@ -91,7 +91,7 @@ class _LoginPageState extends State<LoginPage> {
                           return "Password cannot be empty";
                         }
                         else if(value.length<8){
-                          return "Minimum Password length is 8";
+                          return "Password length should be atleast 8 characters";
                         }
                         return null;
                       },
