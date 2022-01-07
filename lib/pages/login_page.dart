@@ -58,11 +58,15 @@ class _LoginPageState extends State<LoginPage> {
                 height: 20,
               ),
               Padding(
-                padding: const EdgeInsets.symmetric(vertical: 10,horizontal: 25),
+                padding: const EdgeInsets.symmetric(vertical: 10,horizontal: 30),
                 child: Column(
                   children: [
                     TextFormField(
                       decoration: const InputDecoration(
+                        icon: Icon(
+                          Icons.person,
+                          color: Colors.purple,
+                        ),
                         hintText: "Enter username",
                         labelText: "Username",
                       ),
@@ -83,6 +87,10 @@ class _LoginPageState extends State<LoginPage> {
                     TextFormField(
                       obscureText: true,
                       decoration: const InputDecoration(
+                        icon: Icon(
+                          Icons.password,
+                          color: Colors.purple,
+                        ),
                         hintText: "Enter password",
                         labelText: "Password",
                       ),
