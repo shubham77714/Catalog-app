@@ -37,17 +37,55 @@ class _HomePageState extends State<HomePage> {
         title: const Text("Catalog App"),
       ),
       drawer: const MyDrawer(),
-      body: (CatalogModel.items!=null && CatalogModel.items!.isNotEmpty)? ListView.builder(
-        padding: const EdgeInsets.all(10),
-        itemCount: CatalogModel.items!.length,  
-        itemBuilder: (context,index){
-          return ItemWidget(
-            item: CatalogModel.items![index],
-          );
-        },
-      ):const Center(
-        child: CircularProgressIndicator(),
-      ),
+      body: Padding(
+        padding: const EdgeInsets.all(10.0),
+        child: (CatalogModel.items!=null && CatalogModel.items!.isNotEmpty)
+          ? GridView.builder(
+            gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+              crossAxisCount: 2,
+              crossAxisSpacing: 14,
+              mainAxisSpacing: 14,
+            ),
+            itemCount: CatalogModel.items!.length, 
+            itemBuilder: (context,index) {
+              final item = CatalogModel.items![index];
+              return Card(
+                clipBehavior: Clip.antiAlias,
+                elevation: 15,
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(10)
+                ),
+                shadowColor: Colors.red,
+                child: GridTile(
+                  header: Container(
+                    padding: const EdgeInsets.all(12),
+                    child: Text(
+                      item.name,
+                      style: const TextStyle(color: Colors.white),
+                    ),
+                    decoration: const BoxDecoration(
+                      color: Colors.deepPurpleAccent,
+                    ),
+                  ),
+                  child: Image.network(item.image),
+                  footer:  Container(
+                    padding: const EdgeInsets.all(12),
+                    child: Text(
+                      "\$${item.price}",
+                      style: const TextStyle(color: Colors.white),
+                    ),
+                    decoration: const BoxDecoration(
+                      color: Colors.black,
+                    ),
+                  ),
+                ),
+              );
+            }
+          )
+        :const Center(
+          child: CircularProgressIndicator(),
+        ),
+      )
     );
   }
 }
