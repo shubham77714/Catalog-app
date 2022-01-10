@@ -14,6 +14,7 @@ class CatalogList extends StatelessWidget {
   Widget build(BuildContext context) {
     return ListView.builder(
       shrinkWrap: true,
+      itemCount: CatalogModel.items!.length,
       itemBuilder: (context,index){
         final catalog = CatalogModel.items![index];
         return InkWell(
@@ -58,10 +59,10 @@ class CatalogItem extends StatelessWidget {
                     "\$${catalog.price}".text.bold.make(),
                     ElevatedButton(
                       onPressed: (){}, 
-                      child: "Buy".text.make(),
+                      child: "Add to Cart".text.make(),
                       style: ButtonStyle(
                         backgroundColor: MaterialStateProperty.all(MyTheme.darkBluishColor),
-                        shape: MaterialStateProperty.all(const CircleBorder()),
+                        shape: MaterialStateProperty.all(const StadiumBorder()),
                       ),  
                     )
                   ],

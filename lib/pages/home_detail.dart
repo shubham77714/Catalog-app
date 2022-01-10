@@ -11,7 +11,10 @@ class HomeDetailsPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(),
+      appBar: AppBar(
+        backgroundColor: Colors.transparent,
+        elevation: 0.0,
+      ),
       backgroundColor: MyTheme.creamColor,
       bottomNavigationBar:  ButtonBar(
         alignment: MainAxisAlignment.spaceBetween,
@@ -20,7 +23,7 @@ class HomeDetailsPage extends StatelessWidget {
           "\$${catalog.price}".text.bold.scale(1.5).color(Colors.brown.shade600).make(),
           ElevatedButton(
             onPressed: (){}, 
-            child: "Buy".text.scale(1.3).make(),
+            child: "Add to Cart".text.scale(1).make(),
             style: ButtonStyle(
               backgroundColor: MaterialStateProperty.all(MyTheme.darkBluishColor),
               shape: MaterialStateProperty.all(
@@ -29,7 +32,7 @@ class HomeDetailsPage extends StatelessWidget {
                 )
               ),
             ),  
-          ).wh(90,40)
+          ).wh(110,40)
         ],
       ).px32().py8().backgroundColor(MyTheme.creamColor),
       body: SafeArea(
@@ -54,6 +57,9 @@ class HomeDetailsPage extends StatelessWidget {
                         .xl3.bold.make(),
                       10.heightBox,
                       catalog.desc.text.make(),
+                      15.heightBox,
+                      "Ere werud sydou wylag en kynzathul ezes ne hullothya iunhum kyth. Buol nym num en nym werud, ullyetuk hioll buol olelothya scepsegud bua, wklelue viragnac urodum sydou ozuk myth bezzeg, en ozuk keguggethuk urumemtuul scegenul ygoz. Iunhum halallal halallal byuntelen syrolmol volek hyul illen. Engumet eggedum epedek syrolmom eggen scemem."
+                        .text.scale(1.18).make().p(20),
                     ],
                   ).py32(),
                 ),
