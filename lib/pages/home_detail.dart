@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_demo/models/catalog.dart';
 import 'package:velocity_x/velocity_x.dart';
-import 'package:flutter_demo/widgets/theme.dart';
 
 
 class HomeDetailsPage extends StatelessWidget {
@@ -15,17 +14,17 @@ class HomeDetailsPage extends StatelessWidget {
         backgroundColor: Colors.transparent,
         elevation: 0.0,
       ),
-      backgroundColor: MyTheme.creamColor,
+      backgroundColor: context.canvasColor,
       bottomNavigationBar:  ButtonBar(
         alignment: MainAxisAlignment.spaceBetween,
         buttonPadding: EdgeInsets.zero,
         children: [
-          "\$${catalog.price}".text.bold.scale(1.5).color(Colors.brown.shade600).make(),
+          "\$${catalog.price}".text.bold.scale(1.5).make(),
           ElevatedButton(
             onPressed: (){}, 
             child: "Add to Cart".text.scale(1).make(),
             style: ButtonStyle(
-              backgroundColor: MaterialStateProperty.all(MyTheme.darkBluishColor),
+              backgroundColor: MaterialStateProperty.all(context.theme.highlightColor),
               shape: MaterialStateProperty.all(
                 const RoundedRectangleBorder(
                   borderRadius: BorderRadius.all(Radius.circular(25))
@@ -34,7 +33,7 @@ class HomeDetailsPage extends StatelessWidget {
             ),  
           ).wh(110,40)
         ],
-      ).px32().py8().backgroundColor(MyTheme.creamColor),
+      ).px32().py8().backgroundColor(context.cardColor),
       body: SafeArea(
         bottom: false,
         child: Column(
@@ -49,11 +48,11 @@ class HomeDetailsPage extends StatelessWidget {
                 arcType: VxArcType.CONVEX,
                 edge: VxEdge.TOP,
                 child: Container(
-                  color: Colors.brown.shade100,
+                  color: context.cardColor,
                   width: context.screenWidth,
                   child: Column(
                     children: [
-                      catalog.name.text.color(MyTheme.darkBluishColor)
+                      catalog.name.text.color(context.theme.highlightColor)
                         .xl3.bold.make(),
                       10.heightBox,
                       catalog.desc.text.make(),
@@ -66,7 +65,7 @@ class HomeDetailsPage extends StatelessWidget {
               ),
             ),
           ],
-        ).py4(),
+        ),
       ),
     );
   }

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_demo/utils/routes.dart';
+import 'package:velocity_x/velocity_x.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({ Key? key }) : super(key: key);
@@ -35,12 +36,12 @@ class _LoginPageState extends State<LoginPage> {
     return Form(
       key: _formKey,
       child: Material(
-        color: Colors.white,
+        color: Theme.of(context).canvasColor,
         child: SingleChildScrollView(
           child: Column(
             children: [
               Image.asset(
-                "assets/images/hey.png",
+                "assets/images/bg_hey.png",
                 fit: BoxFit.cover,
               ),
               const SizedBox(
@@ -48,10 +49,10 @@ class _LoginPageState extends State<LoginPage> {
               ),
                Text(
                 "Welcome $name",
-                style: const TextStyle(
+                style: TextStyle(
                   fontSize: 25.0,
                   fontWeight: FontWeight.bold,
-                  color: Colors.indigo
+                  color: context.theme.highlightColor,
                 ),
               ),
               const SizedBox(
@@ -108,7 +109,7 @@ class _LoginPageState extends State<LoginPage> {
                       height: 40,
                     ),
                     Material(
-                      color: Colors.deepPurple,
+                      color: context.theme.highlightColor,
                       borderRadius:
                         BorderRadius.circular(changeButton ? 50 : 20),        
                       child: InkWell(
