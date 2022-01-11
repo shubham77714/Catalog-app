@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_demo/core/store.dart';
 import 'package:flutter_demo/models/cart.dart';
 import 'package:velocity_x/velocity_x.dart';
 
@@ -30,13 +31,13 @@ class _CartTotal extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final _cart = CartModel();
+    final _cart = (VxState.store as MyStore).cart;
     return SizedBox(
       height: 200,
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: [
-          "\$${_cart.totalPrice}".text.xl3.color(context.theme.hintColor).make(),       //total price
+          "\$${_cart!.totalPrice}".text.xl3.color(context.theme.hintColor).make(),       //total price
           50.widthBox,
           ElevatedButton(
             onPressed: (){
@@ -64,10 +65,10 @@ class _CartTotal extends StatelessWidget {
 
 
 class _CartList extends StatelessWidget{
-  final _cart = CartModel();
+  final _cart = (VxState.store as MyStore).cart;
   @override
   Widget build(BuildContext context) {
-    return _cart.items.isEmpty? Column(
+    return _cart!.items.isEmpty? Column(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         "Cart is empty".text.color(context.theme.hintColor).scale(2.5).make().py12(),
@@ -75,18 +76,18 @@ class _CartList extends StatelessWidget{
       ],
     )
       :ListView.builder(
-      itemCount: _cart.items.length,
+      itemCount: _cart!.items.length,
       itemBuilder: (context,index){
         return ListTile(
           leading: const Icon(Icons.done),
           trailing: IconButton(
             onPressed: (){
-              _cart.remove(_cart.items[index]);
+              _cart!.remove(_cart!.items[index]);
               // setState(() {});
             },
             icon: const Icon(Icons.cancel),
           ),
-          title: _cart.items[index].name.text.make(),
+          title: _cart!.items[index].name.text.make(),
         );
       }
     );
