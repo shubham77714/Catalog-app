@@ -1,4 +1,12 @@
 class CatalogModel{
+  static final catModel = CatalogModel._internal();
+  CatalogModel._internal();
+  
+  factory CatalogModel() => catModel;
+
+  //catalog field
+  CatalogModel? _catalog;
+  CatalogModel? get catalog => _catalog;
 
   static List<Item>? items ;
 

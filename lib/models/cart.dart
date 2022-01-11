@@ -1,6 +1,13 @@
 import 'package:flutter_demo/models/catalog.dart';
 
 class CartModel{
+  //singleton class it will retrive the previous object
+
+  static final cartModel = CartModel._internal();
+  CartModel._internal();
+  
+  factory CartModel() => cartModel;
+
   //catalog field
   CatalogModel? _catalog;     // use underscore to make private
 
@@ -24,12 +31,16 @@ class CartModel{
   int get totalPrice => 
       items.fold(0, (total, element) => total+=element.price);
 
+  //add item to cart
   void add(Item item){
     _itemIds.add(item.id);
   }
 
+  //remove item from cart
   void remove(Item item){
     _itemIds.remove(item.id);
   }
+
+
 
 }
