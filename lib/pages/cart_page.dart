@@ -73,13 +73,23 @@ class __CartListState extends State<_CartList> {
   final _cart = CartModel();
   @override
   Widget build(BuildContext context) {
-    return ListView.builder(
+    return _cart.items.isEmpty? Column(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        "Cart is empty".text.color(context.theme.hintColor).scale(2.5).make().py12(),
+        "Add products to your cart".text.color(context.theme.primaryColor).scale(1.3).make()
+      ],
+    )
+      :ListView.builder(
       itemCount: _cart.items.length,
       itemBuilder: (context,index){
         return ListTile(
           leading: const Icon(Icons.done),
           trailing: IconButton(
-            onPressed: (){},
+            onPressed: (){
+              _cart.remove(_cart.items[index]);
+              setState(() {});
+            },
             icon: const Icon(Icons.cancel),
           ),
           title: _cart.items[index].name.text.make(),
