@@ -23,8 +23,8 @@ class CartModel{
       _itemIds.map((id) => _catalog!.getById(id)).toList();
 
   //get total price
-  int get totalPrice => 
-      items.fold(0, (total, element) => total+=element.price);
+  double get totalPrice => 
+      items.fold(0, (total, element) => total+=double.parse(element.price));
 
   //add item to cart
   void add(Item item){

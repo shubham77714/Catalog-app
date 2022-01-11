@@ -17,32 +17,32 @@ class CatalogModel{
 
 class Item{
   final int id;
+  final String brand;
   final String name;
   final String desc;
-  final int price;
-  final String color;
+  final String price;
   final String image;
 
-  Item({required this.id, required this.name, required this.desc, required this.price, required this.color, required this.image});
+  Item({required this.id,required this.brand ,required this.name, required this.desc, required this.price, required this.image});
 
   factory Item.fromMap(Map<String,dynamic> map){
     return Item(
       id: map["id"], 
+      brand: map["brand"],
       name: map["name"], 
-      desc: map["desc"], 
-      price: map["price"], 
-      color: map["color"], 
-      image: map["image"],
+      desc: map["description"], 
+      price: map["price"],  
+      image: map["image_link"],
     );
   }
 
   toMap() => {
     "id":id,
+    "brand":brand,
     "name":name,
-    "desc":desc,
+    "description":desc,
     "price":price,
-    "color":color,
-    "image":image,
+    "image_link":image,
   };
   
 }

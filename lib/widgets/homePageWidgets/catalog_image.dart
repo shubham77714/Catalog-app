@@ -7,8 +7,11 @@ class CatalogImage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Image.network(
-      image
-    ).box.rounded.p1.color(context.theme.canvasColor).make().p12().w40(context).h20(context);
+    return ClipRRect(
+      borderRadius: BorderRadius.circular(5.0),
+      child: Image.network(
+        image
+      ),
+    ).p12();
   }
 }

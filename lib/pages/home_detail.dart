@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_demo/models/catalog.dart';
 import 'package:flutter_demo/widgets/homePageWidgets/add_to_cart.dart';
+import 'package:flutter_demo/widgets/homePageWidgets/cart_button.dart';
 import 'package:velocity_x/velocity_x.dart';
 
 
@@ -14,6 +15,9 @@ class HomeDetailsPage extends StatelessWidget {
       appBar: AppBar(
         backgroundColor: Colors.transparent,
         elevation: 0.0,
+        actions: const [
+          CartButton()
+        ],
       ),
       backgroundColor: context.canvasColor,
       bottomNavigationBar:  ButtonBar(
@@ -33,24 +37,26 @@ class HomeDetailsPage extends StatelessWidget {
               child: Image.network(catalog.image).box.make()
             ).h32(context),
             Expanded(
-              child: VxArc(
-                height: 15,
-                arcType: VxArcType.CONVEX,
-                edge: VxEdge.TOP,
-                child: Container(
-                  color: context.cardColor,
-                  width: context.screenWidth,
-                  child: Column(
-                    children: [
-                      catalog.name.text.color(context.theme.highlightColor)
-                        .xl3.bold.make(),
-                      10.heightBox,
-                      catalog.desc.text.make(),
-                      15.heightBox,
-                      "Ere werud sydou wylag en kynzathul ezes ne hullothya iunhum kyth. Buol nym num en nym werud, ullyetuk hioll buol olelothya scepsegud bua, wklelue viragnac urodum sydou ozuk myth bezzeg, en ozuk keguggethuk urumemtuul scegenul ygoz. Iunhum halallal halallal byuntelen syrolmol volek hyul illen. Engumet eggedum epedek syrolmom eggen scemem."
-                        .text.scale(1.18).make().p(20),
-                    ],
-                  ).py32(),
+              child: SingleChildScrollView(
+                
+                child: VxArc(
+                  height: 15,
+                  arcType: VxArcType.CONVEX,
+                  edge: VxEdge.TOP,
+                  child: Container(
+                    color: context.cardColor,
+                    width: context.screenWidth,
+                    child: Column(
+                      children: [
+                        catalog.brand.text.color(context.theme.highlightColor)
+                          .xl3.bold.make(),
+                        10.heightBox,
+                        catalog.name.text.make(),
+                        15.heightBox,
+                        catalog.desc.text.scale(1.18).make().p(20),
+                      ],
+                    ).py32(),
+                  ),
                 ),
               ),
             ),

@@ -41,7 +41,7 @@ class _CartTotal extends StatelessWidget {
             mutations: const {RemoveMutation},
             notifications: const {},
             builder: (context, _, status) {
-              return "\$${_cart!.totalPrice}"                                     //total price
+              return "\$${_cart!.totalPrice.toDoubleStringAsPrecised(length: 2)}"                                     //total price
               .text.xl3
               .color(context.theme.hintColor)
               .make();
