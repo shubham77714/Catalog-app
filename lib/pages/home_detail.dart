@@ -19,7 +19,7 @@ class HomeDetailsPage extends StatelessWidget {
         alignment: MainAxisAlignment.spaceBetween,
         buttonPadding: EdgeInsets.zero,
         children: [
-          "\$${catalog.price}".text.bold.scale(1.5).make(),
+          "\$${catalog.price}".text.color(context.theme.hintColor).bold.scale(1.5).make(),
           ElevatedButton(
             onPressed: (){}, 
             child: "Add to Cart".text.scale(1).make(),

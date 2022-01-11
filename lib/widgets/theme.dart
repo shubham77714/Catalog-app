@@ -12,6 +12,7 @@ class MyTheme{
       highlightColor: darkBluishColor,
       primaryColor: darkBluishColor,
       primaryColorLight: Colors.black,
+      hintColor: Colors.brown.shade600,
       appBarTheme: const AppBarTheme(
         color: Colors.white,
         iconTheme: IconThemeData(
@@ -34,6 +35,7 @@ class MyTheme{
       highlightColor: lightBluish,
       primaryColor: creamColor,
       primaryColorLight: Colors.white60,
+      hintColor: Colors.lime.shade100,
       appBarTheme: const AppBarTheme(
         color: Colors.white,
         iconTheme: IconThemeData(
