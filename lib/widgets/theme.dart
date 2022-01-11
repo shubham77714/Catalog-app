@@ -19,7 +19,7 @@ class MyTheme{
         ),
         titleTextStyle: TextStyle(
           color: Colors.black,
-          fontSize: 18,
+          fontSize: 20,
           fontWeight: FontWeight.bold,
         )
       ),
@@ -41,7 +41,7 @@ class MyTheme{
         ),
         titleTextStyle: TextStyle(
           color: Colors.white,
-          fontSize: 18,
+          fontSize: 20,
           fontWeight: FontWeight.bold,
         )
       ),
