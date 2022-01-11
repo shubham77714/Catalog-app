@@ -16,9 +16,9 @@ class CartPage extends StatelessWidget {
       ),
       body: Column(
         children: [
-          const _CartList().p32().expand(),       //placeholder is used to block some part
-          Divider(),
-          _CartTotal(),
+          _CartList().p32().expand(),       //placeholder is used to block some part
+          const Divider(),
+          const _CartTotal(),
         ],
       ),
     );
@@ -36,7 +36,7 @@ class _CartTotal extends StatelessWidget {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: [
-          "\$${_cart.totalPrice}".text.xl3.color(context.theme.hintColor).make(),
+          "\$${_cart.totalPrice}".text.xl3.color(context.theme.hintColor).make(),       //total price
           50.widthBox,
           ElevatedButton(
             onPressed: (){
@@ -46,6 +46,7 @@ class _CartTotal extends StatelessWidget {
                   duration: const Duration(seconds: 1),
                 )
               );
+              
             }, 
             child: "Buy".text.scale(1.32).make(),
             style: ButtonStyle(
@@ -62,14 +63,7 @@ class _CartTotal extends StatelessWidget {
 }
 
 
-class _CartList extends StatefulWidget {
-  const _CartList({ Key? key }) : super(key: key);
-
-  @override
-  __CartListState createState() => __CartListState();
-}
-
-class __CartListState extends State<_CartList> {
+class _CartList extends StatelessWidget{
   final _cart = CartModel();
   @override
   Widget build(BuildContext context) {
@@ -88,7 +82,7 @@ class __CartListState extends State<_CartList> {
           trailing: IconButton(
             onPressed: (){
               _cart.remove(_cart.items[index]);
-              setState(() {});
+              // setState(() {});
             },
             icon: const Icon(Icons.cancel),
           ),

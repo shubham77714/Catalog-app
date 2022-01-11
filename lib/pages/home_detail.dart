@@ -21,7 +21,7 @@ class HomeDetailsPage extends StatelessWidget {
         buttonPadding: EdgeInsets.zero,
         children: [
           "\$${catalog.price}".text.color(context.theme.hintColor).bold.scale(1.5).make(),
-          AddToCart(catalog: catalog)
+          AddToCart(catalog: catalog).wh(90,40),
         ],
       ).px32().py8().backgroundColor(context.cardColor),
       body: SafeArea(

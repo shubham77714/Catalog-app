@@ -1,13 +1,6 @@
 import 'package:flutter_demo/models/catalog.dart';
 
 class CartModel{
-  //singleton class it will retrive the previous object
-
-  static final cartModel = CartModel._internal();
-  CartModel._internal();
-  
-  factory CartModel() => cartModel;
-
   //catalog field
   CatalogModel? _catalog;     // use underscore to make private
 

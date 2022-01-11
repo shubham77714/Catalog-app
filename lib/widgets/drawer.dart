@@ -14,10 +14,10 @@ class MyDrawer extends StatelessWidget {
         shrinkWrap: true,
         children: [
           DrawerHeader(
-            decoration: BoxDecoration(color: Colors.indigoAccent),
+            decoration: const BoxDecoration(color: Colors.indigoAccent),
             padding: EdgeInsets.zero,
              child: UserAccountsDrawerHeader(
-                decoration: BoxDecoration(color: Colors.white),
+                decoration: const BoxDecoration(color: Colors.white),
                 accountName:  const Text(
                   "username",
                   style: TextStyle(

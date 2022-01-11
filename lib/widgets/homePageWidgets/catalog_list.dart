@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_demo/models/catalog.dart';
 import 'package:flutter_demo/pages/home_detail.dart';
 import 'package:velocity_x/velocity_x.dart';
-import 'package:flutter_demo/models/cart.dart';
 import 'add_to_cart.dart';
 import 'catalog_image.dart';
 
